@@ -12,6 +12,14 @@
   </head>
   <body>
     <div id="app"></div>
+	<script>
+		function add(num){
+			document.getElementById('number').value = document.getElementById('number').value + num;
+		}
+		function clear(){
+			document.getElementById('number').value = "";
+		}
+	</script>
     <!-- Set `__static` path to static files in production -->
     <script>
       if (process.env.NODE_ENV !== 'development') window.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')

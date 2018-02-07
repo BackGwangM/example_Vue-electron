@@ -3,7 +3,7 @@
       <div id="Formula">
           {{formula}}
       </div>
-      <input type="number" v-model.number="num" id="number" autofocus>
+      <input type="text" id="number" maxlength="16" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" autofocus>
   </div>
 </template>
 <script>
@@ -42,6 +42,7 @@ export default {
     font-size:10vmin;
     text-align: right;
     border: 0;
+    ime-mode:inactive;
 }
 input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;

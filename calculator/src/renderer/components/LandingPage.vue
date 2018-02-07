@@ -8,11 +8,12 @@
 <script>
 import display from './LandingPage/display'
 import NumberBtn from './LandingPage/number_btn'
+
 export default {
   components:{
     display,
     NumberBtn
-  },
+  }
 }
 </script>
 <style scoped>

@@ -1,6 +1,6 @@
 <template>
   <div id="number_btn">
-      <div class="btn symbol">
+      <div class="btn symbol" onclick="clear()">
           <span>Clear</span>
       </div>
       <div class="btn symbol">
@@ -12,49 +12,49 @@
       <div class="btn calc symbol">
           <span>/</span>
       </div>
-      <div class="btn">
+      <div class="btn" onclick="add('7')">
           <span>7</span>
       </div>
-      <div class="btn">
+      <div class="btn" onclick="add('8')">
           <span>8</span>
       </div>
-      <div class="btn">
+      <div class="btn" onclick="add('9')">
           <span>9</span>
       </div>
       <div class="btn calc symbol">
           <span>×</span>
       </div>
-      <div class="btn">
+      <div class="btn" onclick="add('4')">
           <span>4</span>
       </div>
-      <div class="btn">
+      <div class="btn" onclick="add('5')">
           <span>5</span>
       </div>
-      <div class="btn">
+      <div class="btn" onclick="add('6')">
           <span>6</span>
       </div>
       <div class="btn calc symbol">
           <span>-</span>
       </div>
-      <div class="btn">
+      <div class="btn" onclick="add('1')">
           <span>1</span>
       </div>
-      <div class="btn">
+      <div class="btn" onclick="add('2')">
           <span>2</span>
       </div>
-      <div class="btn">
+      <div class="btn"  onclick="add('3')">
           <span>3</span>
       </div>
       <div class="btn calc symbol">
           <span>+</span>
       </div>
-      <div class="btn">
+      <div class="btn" onclick="add('00')">
           <span>00</span>
       </div>
-      <div class="btn">
+      <div class="btn" onclick="add('0')">
           <span>0</span>
       </div>
-      <div class="btn symbol">
+      <div class="btn symbol" onclick="add('.')">
           <span>.</span>
       </div>
       <div class="resultbtn">
@@ -63,6 +63,7 @@
   </div>
 </template>
 <script>
+
 export default {
   
 }
@@ -72,7 +73,7 @@ export default {
         position: relative;
         left: 2.5vw;
         width: 95vw;
-        height: 60vh;
+        height: 59vh;
     }
     .btn{
         display: flex;
