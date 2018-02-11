@@ -4,14 +4,14 @@
       <div class="btn symbol" v-on:click="$EventBus.$emit('clear')">
           <span>Clear</span>
       </div>
-      <div class="btn symbol">
+      <div class="btn symbol" v-on:click="$EventBus.$emit('sign-switch')">
           <span>+/-</span>
       </div>
       <div class="btn symbol">
           <span>%</span>
       </div>
-      <div class="btn calc symbol">
-          <span>/</span>
+      <div class="btn calc symbol" v-on:click="$EventBus.$emit('calc', '÷')">
+          <span>÷</span>
       </div>
       <div class="btn" v-on:click="$EventBus.$emit('click-num',7)">
           <span>7</span>
@@ -22,7 +22,7 @@
       <div class="btn" v-on:click="$EventBus.$emit('click-num',9)">
           <span>9</span>
       </div>
-      <div class="btn calc symbol">
+      <div class="btn calc symbol" v-on:click="$EventBus.$emit('calc', '×')">
           <span>×</span>
       </div>
       <div class="btn" v-on:click="$EventBus.$emit('click-num',4)">
@@ -34,7 +34,7 @@
       <div class="btn" v-on:click="$EventBus.$emit('click-num',6)">
           <span>6</span>
       </div>
-      <div class="btn calc symbol">
+      <div class="btn calc symbol" v-on:click="$EventBus.$emit('calc', '-')">
           <span>-</span>
       </div>
       <div class="btn" v-on:click="$EventBus.$emit('click-num',1)">
@@ -46,7 +46,7 @@
       <div class="btn" v-on:click="$EventBus.$emit('click-num',3)">
           <span>3</span>
       </div>
-      <div class="btn calc symbol">
+      <div class="btn calc symbol" v-on:click="$EventBus.$emit('calc', '+')">
           <span>+</span>
       </div>
       <div class="btn" v-on:click="$EventBus.$emit('click-num','00')">
@@ -64,7 +64,6 @@
   </div>
 </template>
 <script>
-
 export default {
   
 }
@@ -114,16 +113,17 @@ export default {
     }
     .calc{
         color: #EE4444;
+        font-size: 8vmin;
     }
     #result{
         text-align: center;
-        line-height: 10vmin;
+        line-height: 12vmin;
         color: #FFFFFF;
         background-color: #EE4444;
-        border-radius: 10vmin;
-        font-size: 5vmin;
-        width: 10vmin;
-        height: 10vmin;
+        border-radius: 15vmin;
+        font-size: 8vmin;
+        width: 12vmin;
+        height: 12vmin;
         box-shadow: 3px 3px 30px 2px #EE4444;
     }
     #result:hover{

@@ -14,16 +14,36 @@ export default {
       name: 'display'
       return{
         formula : '',
-        num: ''
+        num: '',
+        sign: ''
       };
   },
       created() {
       this.$EventBus.$on('click-num', (num) => {
-        this.num = this.num+num;
+          this.num = this.num+num;
+          if(num == '.' || num == '0'){
+              return;
+          }
+        else{
+            this.num = this.num * 1;
+            this.num = String(this.num);
+        }
       });
       this.$EventBus.$on('clear', () => {
+        this.formula = '';
         this.num = '';
       });
+      this.$EventBus.$on('sign-switch', ()=> {
+        this.num = this.num * -1;
+        this.num = String(this.num);
+      })
+      this.$EventBus.$on('calc', (sign)=> {
+          if(this.num != ''){
+            this.formula = this.formula + this.num + ' '+sign;
+            this.num = '';
+          }
+          
+      })
     }
 }
 </script>
