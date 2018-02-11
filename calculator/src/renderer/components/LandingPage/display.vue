@@ -3,7 +3,9 @@
       <div id="Formula">
           {{formula}}
       </div>
-      <input type="text" id="number" maxlength="16" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" autofocus>
+      <div id="number">
+          {{num}}
+      </div>
   </div>
 </template>
 <script>
@@ -11,9 +13,18 @@ export default {
   data(){
       name: 'display'
       return{
-        formula : '123456+123456'
-      }
-  }
+        formula : '',
+        num: ''
+      };
+  },
+      created() {
+      this.$EventBus.$on('click-num', (num) => {
+        this.num = this.num+num;
+      });
+      this.$EventBus.$on('clear', () => {
+        this.num = '';
+      });
+    }
 }
 </script>
 <style>
@@ -31,9 +42,6 @@ export default {
     font-size:6vmin;
     text-align: right;
 }
-#number:focus{
-    outline: none;
-}
 #number{
     height: 17.5vh;
     line-height: 17.5vh; 
@@ -43,8 +51,5 @@ export default {
     text-align: right;
     border: 0;
     ime-mode:inactive;
-}
-input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
 }
 </style>

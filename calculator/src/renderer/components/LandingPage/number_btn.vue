@@ -1,6 +1,7 @@
 <template>
+
   <div id="number_btn">
-      <div class="btn symbol" onclick="clear()">
+      <div class="btn symbol" v-on:click="$EventBus.$emit('clear')">
           <span>Clear</span>
       </div>
       <div class="btn symbol">
@@ -12,49 +13,49 @@
       <div class="btn calc symbol">
           <span>/</span>
       </div>
-      <div class="btn" onclick="add('7')">
+      <div class="btn" v-on:click="$EventBus.$emit('click-num',7)">
           <span>7</span>
       </div>
-      <div class="btn" onclick="add('8')">
+      <div class="btn" v-on:click="$EventBus.$emit('click-num',8)">
           <span>8</span>
       </div>
-      <div class="btn" onclick="add('9')">
+      <div class="btn" v-on:click="$EventBus.$emit('click-num',9)">
           <span>9</span>
       </div>
       <div class="btn calc symbol">
           <span>×</span>
       </div>
-      <div class="btn" onclick="add('4')">
+      <div class="btn" v-on:click="$EventBus.$emit('click-num',4)">
           <span>4</span>
       </div>
-      <div class="btn" onclick="add('5')">
+      <div class="btn" v-on:click="$EventBus.$emit('click-num',5)">
           <span>5</span>
       </div>
-      <div class="btn" onclick="add('6')">
+      <div class="btn" v-on:click="$EventBus.$emit('click-num',6)">
           <span>6</span>
       </div>
       <div class="btn calc symbol">
           <span>-</span>
       </div>
-      <div class="btn" onclick="add('1')">
+      <div class="btn" v-on:click="$EventBus.$emit('click-num',1)">
           <span>1</span>
       </div>
-      <div class="btn" onclick="add('2')">
+      <div class="btn" v-on:click="$EventBus.$emit('click-num',2)">
           <span>2</span>
       </div>
-      <div class="btn"  onclick="add('3')">
+      <div class="btn" v-on:click="$EventBus.$emit('click-num',3)">
           <span>3</span>
       </div>
       <div class="btn calc symbol">
           <span>+</span>
       </div>
-      <div class="btn" onclick="add('00')">
+      <div class="btn" v-on:click="$EventBus.$emit('click-num','00')">
           <span>00</span>
       </div>
-      <div class="btn" onclick="add('0')">
+      <div class="btn" v-on:click="$EventBus.$emit('click-num',0)">
           <span>0</span>
       </div>
-      <div class="btn symbol" onclick="add('.')">
+      <div class="btn symbol" v-on:click="$EventBus.$emit('click-num','.')">
           <span>.</span>
       </div>
       <div class="resultbtn">
