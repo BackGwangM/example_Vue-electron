@@ -4,11 +4,11 @@
       <div class="btn symbol" v-on:click="$EventBus.$emit('clear')">
           <span>Clear</span>
       </div>
+      <div class="btn symbol" v-on:click="$EventBus.$emit('backspace')">
+          <span>←</span>
+      </div>
       <div class="btn symbol" v-on:click="$EventBus.$emit('sign-switch')">
           <span>+/-</span>
-      </div>
-      <div class="btn symbol">
-          <span>%</span>
       </div>
       <div class="btn calc symbol" v-on:click="$EventBus.$emit('calc', '÷')">
           <span>÷</span>
@@ -58,7 +58,7 @@
       <div class="btn symbol" v-on:click="$EventBus.$emit('click-num','.')">
           <span>.</span>
       </div>
-      <div class="resultbtn">
+      <div class="resultbtn" v-on:click="$EventBus.$emit('result')">
           <div id="result">=</div>
       </div>
   </div>

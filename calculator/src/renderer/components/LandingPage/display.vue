@@ -9,19 +9,21 @@
   </div>
 </template>
 <script>
+var formula = null;
 export default {
   data(){
       name: 'display'
       return{
         formula : '',
         num: '',
-        sign: ''
+        sign: '',
+        check: 0
       };
   },
       created() {
       this.$EventBus.$on('click-num', (num) => {
           this.num = this.num+num;
-          if(num == '.' || num == '0'){
+          if(num == '.' || num == '0' && this.check == 0){
               return;
           }
         else{
@@ -32,17 +34,43 @@ export default {
       this.$EventBus.$on('clear', () => {
         this.formula = '';
         this.num = '';
+        this.check = 0;
       });
-      this.$EventBus.$on('sign-switch', ()=> {
-        this.num = this.num * -1;
-        this.num = String(this.num);
-      })
-      this.$EventBus.$on('calc', (sign)=> {
-          if(this.num != ''){
-            this.formula = this.formula + this.num + ' '+sign;
-            this.num = '';
+      this.$EventBus.$on('backspace', ()=>{
+          if(this.check == 0){
+              this.num = this.num.substring(0, this.num.length - 1);
           }
           
+      })
+      this.$EventBus.$on('sign-switch', ()=> {
+          if(this.check == 0){
+            this.num = this.num * -1;
+            this.num = String(this.num);
+          }
+        
+      })
+      this.$EventBus.$on('calc', (sign)=> {
+          if(this.num != '' && this.check == 0){
+            this.formula = this.formula + ' '+ this.num + ' '+sign;
+            this.num = '';
+          }
+          else if(this.num != ''){
+            this.formula = this.num + ' '+sign;
+            this.num = '';
+            this.check = 0;
+          }
+      })
+      this.$EventBus.$on('result', ()=> {
+          if(this.num != '' && this.check == 0){
+            this.check = 1;
+            formula = this.formula+ ' ' + this.num;
+            this.formula = formula + ' = ';
+            formula = formula.replace('×','*');
+            formula = formula.replace('÷','/');
+            formula = formula.replace(' ','');
+            console.log(formula);
+            this.num = eval(formula);
+          }
       })
     }
 }
