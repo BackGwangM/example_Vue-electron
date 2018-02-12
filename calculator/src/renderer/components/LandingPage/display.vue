@@ -26,7 +26,7 @@ export default {
           if(num == '.' || num == '0' && this.check == 0){
               return;
           }
-        else{
+        else if(this.check == 0){
             this.num = this.num * 1;
             this.num = String(this.num);
         }
